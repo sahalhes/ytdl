@@ -1,4 +1,4 @@
-# Project Name
+# YTDL
 
 This is a project that demonstrates how to use the YouTube Downloader.
 
