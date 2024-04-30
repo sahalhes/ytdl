@@ -5,7 +5,7 @@ This is a project that demonstrates how to use the YouTube Downloader.
 ## Installation
 
 1. Clone the repository to your local machine.
-2. Navigate to the project directory: `cd /path/to/project`.
+2. Navigate to the project directory: `cd ytdl`.
 3. Install the required dependencies by running: `pip install -r requirements.txt`.
 
 ## Usage
