@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YT video downloader</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="center">
+    <div class="container mx-auto p-4 pt-6 md:p-6 lg:p-12 bg-gray-800 rounded-md">
+      <h2 class="text-3xl font-bold mb-4 text-white">YT video downloader</h2>
+      <form id="downloadForm">
+        <input type="text" id="urlInput" name="url" placeholder="Paste URL here" class="w-full p-2 pl-10 text-sm text-gray-700 bg-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 mb-4">
+        <button id="download" type="submit" class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-md submit-btn">Download</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+   
+   document.getElementById("downloadForm").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent the default form submission behavior
+  // Get the URL input value
+  const urlInput = document.getElementById("urlInput").value;
+  
+  // Send the URL and default location to the server via an AJAX request
+  const xhr = new XMLHttpRequest();
+  xhr.open("POST", "http://127.0.0.1:5000/download", true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // Handle the server response if needed
+        alert(xhr.responseText); // For example, display a success message
+      } else {
+        // Handle errors
+        console.error("Request failed:", xhr.status, xhr.statusText);
+      }
+    }
+  };
+  xhr.send(`url=${encodeURIComponent(urlInput)}&location=${encodeURIComponent(defaultLocation)}`);
+});
+
+
+  
+
+  </script>
+</body>
+</html> 

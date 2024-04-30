@@ -1,0 +1,15 @@
+body{
+    background-color: black;
+}
+
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .submit-btn {
+    margin-top: 1rem;
+    background-color: black;
+  }
